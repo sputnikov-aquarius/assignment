@@ -1,0 +1,14 @@
+  
+version: '1'
+services:
+  app:
+    build: .
+    ports:
+     - "9000:9000"
+    links:
+      - "db:redis"
+  db:
+    image: "redis:alpine"
+    hostname: redis
+    ports:
+     - "6379:6379"
